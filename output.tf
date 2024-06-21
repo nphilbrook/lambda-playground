@@ -3,6 +3,11 @@ output "playground_apigw_url" {
   value       = "${aws_api_gateway_stage.playground.invoke_url}/${aws_api_gateway_resource.playground.path_part}"
 }
 
+output "playground_ci_apigw_url" {
+  description = "API Gateway URL of the playground-ci fuction."
+  value       = "${aws_api_gateway_stage.playground.invoke_url}/${aws_api_gateway_resource.playground_ci.path_part}"
+}
+
 output "playground_lambda_invoke_arn" {
   value = aws_lambda_function.playground.invoke_arn
 }
