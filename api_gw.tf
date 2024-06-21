@@ -17,3 +17,8 @@ resource "aws_iam_role" "api_gw_cloudwatch_role" {
   assume_role_policy  = data.aws_iam_policy_document.apigw_assume_role.json
   managed_policy_arns = ["arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"]
 }
+
+## API GW ACCOUNT-WIDE SETTING!!
+resource "aws_api_gateway_account" "gw_account_cw_arn" {
+  cloudwatch_role_arn = aws_iam_role.api_gw_cloudwatch_role.arn
+}
