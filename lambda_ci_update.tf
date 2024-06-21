@@ -44,7 +44,7 @@ resource "aws_api_gateway_method" "playground_ci" {
 
 resource "aws_api_gateway_integration" "playground_ci_updated" {
   rest_api_id             = aws_api_gateway_rest_api.playground.id
-  resource_id             = aws_api_gateway_resource.playground.id
+  resource_id             = aws_api_gateway_resource.playground_ci.id
   http_method             = aws_api_gateway_method.playground_ci.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
