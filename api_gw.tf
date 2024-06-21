@@ -26,6 +26,7 @@ resource "aws_iam_role" "api_gw_cloudwatch_role" {
 resource "aws_api_gateway_account" "gw_account_cw_arn" {
   cloudwatch_role_arn = aws_iam_role.api_gw_cloudwatch_role.arn
 }
+### END API GW ACCOUNT-WIDE SETTING!!!!
 
 resource "aws_api_gateway_rest_api" "playground" {
   name        = local.base_name
