@@ -4,14 +4,14 @@ resource "aws_cloudwatch_log_group" "ci_function_bucket" {
 }
 
 resource "aws_lambda_function" "playground_ci" {
-  function_name    = "${local.base_name}-ci"
-  description      = "Its a function. WITHOUT A SERVER!! UPDATED FROM CI!"
-  s3_bucket        = module.placeholder_bucket.s3_bucket_id
-  s3_key           = "lambda_function.zip"
-  role             = aws_iam_role.lambda_execution_role.arn
-  handler          = "lambda_function.lambda_handler"
-  runtime          = "python3.10"
-  timeout          = 30
+  function_name = "${local.base_name}-ci"
+  description   = "Its a function. WITHOUT A SERVER!! UPDATED FROM CI!"
+  s3_bucket     = module.placeholder_bucket.s3_bucket_id
+  s3_key        = "lambda_function.zip"
+  role          = aws_iam_role.lambda_execution_role.arn
+  handler       = "lambda_function.lambda_handler"
+  runtime       = "python3.10"
+  timeout       = 60
 
   environment {
     # variables = {
