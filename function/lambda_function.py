@@ -10,10 +10,10 @@ from datetime import datetime, timezone, timedelta
 
 def lambda_handler(event, context):
     """Main Lambda invocation function."""
-    resp = {}
+    resp = ""
     if 'norf' in event:
-        resp['norf'] = event['norf']
-    resp['FOO'] = os.environ['FOO']
+        resp += f"norf={event['norf']},"
+    resp += f"FOO={os.environ['FOO']},"
     print(event["headers"])
     # print(event["body"])
     # # --- Check to see if the signature header has been passed.
