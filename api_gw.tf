@@ -1,5 +1,5 @@
 locals {
-  stage_name = "default"
+  stage_name = "fun-stage"
 }
 
 data "aws_iam_policy_document" "apigw_assume_role" {
