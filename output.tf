@@ -8,7 +8,7 @@ output "playground_lambda_invoke_arn" {
 }
 
 output "bucket_name" {
-  value = module.placeholder_bucket.name.s3_bucket_id
+  value = module.placeholder_bucket.s3_bucket_id
 }
 
 # output "hcp_webhook_resource_name" {
