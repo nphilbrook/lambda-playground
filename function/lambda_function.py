@@ -15,7 +15,7 @@ def lambda_handler(event, context):
         resp['norf'] = event['norf']
     resp['FOO'] = os.environ['FOO']
     print(event["headers"])
-    print(event["body"])
+    # print(event["body"])
     # # --- Check to see if the signature header has been passed.
     # try:
     #     signature = event["headers"]["X-Hcp-Webhook-Signature"]

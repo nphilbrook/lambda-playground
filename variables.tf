@@ -25,13 +25,13 @@ variable "log_retention_days" {
 variable "enable_api_gateway_logging" {
   type        = bool
   description = "Whether to enable API Gateway logging."
-  default     = false
+  default     = true
 }
 
 variable "api_gateway_logging_level" {
   type        = string
   description = "Log level for API Gateway execution logging."
-  default     = "ERROR"
+  default     = "INFO"
   validation {
     condition     = contains(["OFF", "ERROR", "INFO"], var.api_gateway_logging_level)
     error_message = "Invalid logging level specified."
