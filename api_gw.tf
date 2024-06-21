@@ -70,15 +70,6 @@ resource "aws_api_gateway_deployment" "playground" {
   }
 }
 
-resource "aws_api_gateway_deployment" "playground" {
-  rest_api_id = aws_api_gateway_rest_api.playground.id
-  depends_on  = [aws_api_gateway_integration.playground]
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}
-
 resource "aws_api_gateway_stage" "playground" {
   deployment_id = aws_api_gateway_deployment.playground.id
   rest_api_id   = aws_api_gateway_rest_api.playground.id

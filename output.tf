@@ -4,7 +4,7 @@ output "playground_apigw_url" {
 }
 
 output "playground_lambda_invoke_arn" {
-  value       = aws_lambda_function.playground.invoke_arn
+  value = aws_lambda_function.playground.invoke_arn
 }
 
 # output "hcp_webhook_resource_name" {
