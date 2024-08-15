@@ -29,7 +29,7 @@ resource "aws_iam_role" "gha_role" {
          "token.actions.githubusercontent.com:aud": "${one(aws_iam_openid_connect_provider.gha_provider.client_id_list)}"
        },
        "StringLike": {
-         "token.actions.githubusercontent.com:sub": "repo:nphilbrook/lambda-fib:ref:refs/heads/*"
+         "token.actions.githubusercontent.com:sub": "repo:nphilbrook/*:ref:refs/heads/*"
        }
      }
    }
