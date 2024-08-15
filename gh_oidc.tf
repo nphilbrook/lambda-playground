@@ -54,7 +54,8 @@ resource "aws_iam_policy" "gha_policy" {
      "Effect": "Allow",
      "Action": [
        "lambda:UpdateFunctionCode",
-       "s3:PutObject"
+       "s3:PutObject",
+       "s3:GetObject"
      ],
      "Resource": "*"
    }
