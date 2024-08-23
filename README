@@ -2,10 +2,6 @@ To invoke:
 
 aws lambda invoke --function-name philbrook-playground --payload file://$(pwd)/payload.json out.json
 
-This one won't work:
-aws lambda invoke --function-name philbrook-playground-ci --payload file://$(pwd)/payload.json out.json
-because it's expecting to be executed from an API gateway with a requestContext
-
 To invoke via API GW
 
 curl -X POST -v "https://yzbexkpcrb.execute-api.us-east-2.amazonaws.com/fun-stage/handler"
