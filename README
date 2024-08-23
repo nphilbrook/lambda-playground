@@ -1,3 +1,6 @@
+N.b. this is a learning/experimenting repo and code should not be considered best practice or production ready.
+
+# Notes
 To invoke:
 
 aws lambda invoke --function-name philbrook-playground --payload file://$(pwd)/payload.json out.json
