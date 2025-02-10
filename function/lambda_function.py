@@ -15,5 +15,5 @@ def lambda_handler(event, context):
         resp += f"norf={event['norf']},"
     resp += f"FOO={os.environ['FOO']},"
     print(event["headers"])
-    print("\n")
+    resp += "\n"
     return {"statusCode": 200, "body": resp}
