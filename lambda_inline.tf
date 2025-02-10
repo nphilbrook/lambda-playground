@@ -19,7 +19,7 @@ resource "aws_lambda_function" "playground" {
   function_name    = local.base_name
   description      = "Its a function. WITHOUT A SERVER!!"
   filename         = data.archive_file.playground_lambda.output_path
-  source_code_hash = data.archive_file.playground_lambda.output_base64sha256
+  # source_code_hash = data.archive_file.playground_lambda.output_base64sha256
   role             = aws_iam_role.lambda_execution_role.arn
   handler          = "lambda_function.lambda_handler"
   runtime          = "python3.10"
