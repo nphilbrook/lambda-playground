@@ -1,5 +1,5 @@
 module "terraform_data_env" {
-  source           = "github.com/abuxton/terraform-data-env"
+  source = "github.com/abuxton/terraform-data-env"
 }
 
 # output "env_variables" {
