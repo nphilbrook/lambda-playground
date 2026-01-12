@@ -85,8 +85,16 @@ resource "aws_api_gateway_deployment" "playground" {
   rest_api_id = aws_api_gateway_rest_api.playground.id
   depends_on = [
     aws_api_gateway_integration.playground,
-    aws_api_gateway_integration.playground_ci_updated
+    aws_api_gateway_integration.playground_ci_updated,
+    aws_api_gateway_rest_api_policy.playground
   ]
+
+  triggers = {
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_method.playground.authorization,
+      aws_api_gateway_rest_api_policy.playground.policy,
+    ]))
+  }
 
   lifecycle {
     create_before_destroy = true
