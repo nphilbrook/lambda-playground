@@ -96,25 +96,25 @@ locals {
 }
 
 output "foo" {
-  value = "${local.foo}"
+  value = local.foo
 }
 
 output "foo2" {
-  value = "${local.foo}"
+  value = local.foo
 }
 
 output "foo3" {
-  value = "${local.foo}"
+  value = local.foo
 }
 
 output "foo4" {
-  value = "${local.foo}"
+  value = local.foo
 }
 
 output "foo5" {
-  value = "${local.foo}"
+  value = local.foo
 }
 
 output "foo6" {
-  value = "${local.foo}"
+  value = local.foo
 }

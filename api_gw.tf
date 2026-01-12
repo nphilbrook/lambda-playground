@@ -28,12 +28,31 @@ resource "aws_api_gateway_account" "gw_account_cw_arn" {
 }
 ### END API GW ACCOUNT-WIDE SETTING!!!!
 
+data "aws_iam_policy_document" "api_gateway_resource_policy" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::590184029125:role/aws_nick.philbrook_test-developer"]
+    }
+
+    actions   = ["execute-api:Invoke"]
+    resources = ["${aws_api_gateway_rest_api.playground.execution_arn}/*"]
+  }
+}
+
 resource "aws_api_gateway_rest_api" "playground" {
   name        = local.base_name
   description = "Playground rest API"
   endpoint_configuration {
     types = ["EDGE"]
   }
+}
+
+resource "aws_api_gateway_rest_api_policy" "playground" {
+  rest_api_id = aws_api_gateway_rest_api.playground.id
+  policy      = data.aws_iam_policy_document.api_gateway_resource_policy.json
 }
 
 resource "aws_api_gateway_resource" "playground" {
@@ -46,7 +65,7 @@ resource "aws_api_gateway_method" "playground" {
   rest_api_id   = aws_api_gateway_rest_api.playground.id
   resource_id   = aws_api_gateway_resource.playground.id
   http_method   = "POST"
-  authorization = "NONE"
+  authorization = "AWS_IAM"
 
   request_parameters = {
     "method.request.header.X-Foo-Signature" = true
