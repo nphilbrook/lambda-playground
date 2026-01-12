@@ -92,6 +92,7 @@ resource "aws_api_gateway_deployment" "playground" {
   triggers = {
     redeployment = sha1(jsonencode([
       aws_api_gateway_method.playground.authorization,
+      aws_api_gateway_method.playground_ci.authorization,
       aws_api_gateway_rest_api_policy.playground.policy,
     ]))
   }
